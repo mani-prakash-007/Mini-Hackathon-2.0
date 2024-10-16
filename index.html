@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Start Game Block -->
+      <!-- Block - 1  -->
+      <div class="start-game" id="Block-1">
+        <h1>Welcome to Trivia Showdown!</h1>
+        <br />
+        <p>
+          Challenge a friend in a fun trivia game and see who scores the
+          highest. Here's how it works:
+        </p>
+        <ul class="b1_ul">
+          <li><strong>Player Setup</strong> : Enter your names.</li>
+          <li>
+            <strong>Category Selection</strong> : Choose a category (<i
+              >each can only be selected once</i
+            >).
+          </li>
+          <li>
+            <strong>Question and Answer</strong> : Take turns answering easy,
+            medium and hard questions.
+          </li>
+          <li>
+            <strong>Scoring</strong> :
+            <ul>
+              <li id="b1-li">Easy : 10 points</li>
+              <li id="b1-li">Medium : 15 points</li>
+              <li id="b1-li">Hard : 20 points</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Game End</strong>: The player with the higher score wins!
+          </li>
+        </ul>
+        <p>Click to Start Game...</p>
+        <button id="Start-button">Start...!</button>
+      </div>
+
+      <!-- Player Setup Block-->
+      <div class="player-setup hidden" id="Block-2">
+        <h1>Player Setup</h1>
+        <h2>Player 1</h2>
+        <input
+          type="text"
+          name="player-1"
+          id="player-1"
+          placeholder="Enter your player 1 name.."
+        />
+        <p class="error" id="error-message_p1"></p>
+        <br />
+        <h2>Player 2</h2>
+        <input
+          type="text"
+          name="player-2"
+          id="player-2"
+          placeholder="Enter your player 2 name.."
+        />
+        <p class="error" id="error-message_p2"></p>
+        <br />
+        <button id="Block_2_Btn">Next</button>
+      </div>
+
+      <!-- Select Question Category Block -->
+      <div class="select-category hidden" id="Block-3">
+        <h1>Select Category</h1>
+        <p>Select Category:</p>
+        <br /><br />
+        <select id="quiz-category" name="quiz-category">
+          <option value="arts_and_literature">Arts and Literature</option>
+          <option value="film_and_tv">Film and Television</option>
+          <option value="food_and_drink">Food</option>
+          <option value="general_knowledge">General Knowledge</option>
+          <option value="geography">Geography</option>
+          <option value="history">History</option>
+          <option value="music">Music</option>
+          <option value="science">Science</option>
+          <option value="society_and_culture">Society and Culture</option>
+          <option value="sport_and_leisure">Sports</option>
+        </select>
+        <br /><br />
+        <button id="Start_btn_b3">Start Quiz</button>
+        <p id="previous_categories" style="color: red"></p>
+        <!-- Paragraph to show previously selected categories -->
+      </div>
+
+      <!-- Ready Block -->
+      <div class="ready_block hidden" id="ready_block">
+        <h1>Are You Ready?</h1>
+        <br />
+        <p id="Category_value"></p>
+        <br />
+        <button id="Ready_block_btn">Tap to Begin</button>
+      </div>
+
+      <!-- Quiz Questions Block -->
+      <div class="Quiz-questions hidden" id="Block-4">
+        <h1>Quiz Questions</h1>
+        <br />
+        <h2 id="player_turn"></h2>
+        <br />
+        <h2 class="quiz-question" id="question">Loading Question...</h2>
+        <br />
+        <ul id="options">
+          <li>Loading Options...</li>
+          <li>Loading Options...</li>
+          <li>Loading Options...</li>
+          <li>Loading Options...</li>
+        </ul>
+      </div>
+
+      <!-- Quiz Result Block -->
+      <div class="quiz-results hidden" id="Block-5">
+        <h1>Score Board</h1>
+        <h2 id="winner">Winner!</h2>
+        <div id="score-block">
+          <h3>Player Scores</h3>
+          <p id="player1_score">Player 1: 0 points</p>
+          <p id="player2_score">Player 2: 0 points</p>
+        </div>
+        <button id="restart-game">Restart Game</button>
+        <button id="exit-game">Exit Game</button>
+      </div>
+
+      <!-- Exit Page Block -->
+      <div class="Exit-Page hidden" id="Block-6">
+        <h1>Thanks For Playing!</h1>
+        <p>😊</p>
+      </div>
+    </div>
+  </body>
+</html>

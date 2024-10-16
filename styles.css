@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  background: url("./trivia-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container {
+  background: #ffffff;
+  padding: 2rem;
+  margin: 20px;
+  width: 600px;
+  height: 680px;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 20px;
+}
+
+.b1_ul {
+  list-style-type: disc;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+#Block-1 li {
+  margin-left: 10px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+#b1-li {
+  margin-left: 20px;
+}
+
+strong {
+  font-size: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+h1,
+h3,
+h4,
+p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+h2 {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+#Block-2 input {
+  border: 3px solid orangered;
+  padding: 0.8rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  border-radius: 15px;
+}
+
+#Block-2 p {
+  text-align: left;
+  padding-top: 1rem;
+  margin-left: 1rem;
+  color: red;
+}
+
+#Block-3 p {
+  margin-top: 7rem;
+  text-align: left;
+  margin-left: 10px;
+}
+
+#Block-3 select {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  font-size: 1rem;
+  border: 3px solid orangered;
+}
+
+#ready_block {
+  margin-top: 35%;
+}
+
+#player_turn {
+  text-transform: capitalize;
+  font-size: x-large;
+  margin-top: 1rem;
+  color: orangered;
+}
+
+#question {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: rgb(231, 67, 7);
+}
+
+input[type="text"],
+select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#options {
+  list-style-type: none;
+  padding: 0;
+}
+
+#options li {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 3px solid orangered;
+  background-color: orangered;
+  color: white;
+  box-shadow: 0 4px 0 0 rgb(231, 67, 7);
+  transition: all 300ms ease-in-out;
+}
+
+#options li:hover {
+  background-color: white;
+  color: black;
+  border-color: rgb(231, 67, 7);
+  box-shadow: 0 4px 0 0 #bbbbbb;
+}
+#options li:active {
+  transform: scale(0.7);
+}
+
+#Block-5 h2 {
+  text-align: center;
+  margin: 3rem;
+  font-size: 2rem;
+}
+
+#Block-5 h3 {
+  text-align: left;
+  margin: 1.1rem;
+  font-size: 1.5rem;
+}
+
+#score-block {
+  border: 1px solid orangered;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+#score-block p {
+  text-align: left;
+  font-size: 1.3rem;
+  margin: 1.5rem;
+}
+#score-block span {
+  font-style: italic;
+}
+#restart-game {
+  margin: 3rem 0;
+}
+#exit-game {
+  margin: 3rem 0;
+  position: relative;
+}
+#Block-6 {
+  position: relative;
+  top: -3em;
+}
+#Block-6 h1 {
+  position: relative;
+  top: 10rem;
+}
+#Block-6 p {
+  position: relative;
+  top: 12rem;
+  font-size: 15rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  button {
+    padding: 8px;
+  }
+
+  input[type="text"],
+  select {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 580px) {
+  .container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .b1_ul li {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  input[type="text"],
+  select {
+    width: 90%;
+    padding: 10px;
+  }
+
+  #Block-2 input {
+    border: 3px solid orangered;
+    padding: 0.9rem;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+  }
+
+  #Block-3 select {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    border: 3px solid orangered;
+  }
+
+  #ready_block {
+    position: relative;
+    top: -5rem;
+  }
+
+  #Block-3 p {
+    margin: 1.8rem;
+  }
+
+  #Block-6 h1 {
+    position: relative;
+    top: 4rem;
+  }
+  #Block-6 p {
+    position: relative;
+    font-size: 1rem;
+    top: 3rem;
+  }
+
+  #options li {
+    font-size: 1rem;
+  }
+
+  #Block-5 h2 {
+    font-size: 1.5rem;
+  }
+
+  #Block-5 h3 {
+    font-size: 1.2rem;
+  }
+
+  #score-block p {
+    font-size: 1rem;
+  }
+
+  #Block-6 h1 {
+    font-size: 2rem;
+  }
+
+  #Block-6 p {
+    font-size: 8rem;
+  }
+}
