@@ -155,21 +155,21 @@ select {
   text-align: center;
   font-size: 1rem;
   cursor: pointer;
-  border: 3px solid orangered;
-  background-color: orangered;
-  color: white;
-  box-shadow: 0 4px 0 0 rgb(231, 67, 7);
+  border: 1px solid orangered;
+  background-color: white;
+  color: orangered;
+  box-shadow: 0 0 5px 0 rgb(231, 67, 7);
   transition: all 300ms ease-in-out;
 }
 
 #options li:hover {
-  background-color: white;
-  color: black;
+  background-color: orangered;
+  color: white;
   border-color: rgb(231, 67, 7);
   box-shadow: 0 4px 0 0 #bbbbbb;
 }
 #options li:active {
-  transform: scale(0.7);
+  transform: scale(0.8);
 }
 
 #Block-5 h2 {

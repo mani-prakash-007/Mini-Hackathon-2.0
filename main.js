@@ -56,13 +56,17 @@ function Validate_Players() {
 // Category Selection Block Events
 Start_btn_b3.addEventListener("click", () => {
   category = document.getElementById("quiz-category").value;
-  category = formatCategory(category);
-
-  previousCategories.push(category); // Add the selected category to the list
-
+  let formatedCategory = formatCategory(category);
+  if (previousCategories.includes(formatedCategory)) {
+    alert(
+      `${formatedCategory} is already Selected. Please Select another category to play`
+    );
+    return;
+  }
+  previousCategories.push(formatedCategory); // Add the selected category to the list
   Select_Category_Block.classList.add("hidden");
   Ready_block.classList.remove("hidden");
-  category_value.innerHTML = `<b>Selected Category</b> : <i>${category}</i>`;
+  category_value.innerHTML = `<b>Selected Category</b> : <i>${formatedCategory}</i>`;
   previousCategoriesParagraph.innerHTML =
     previousCategories.length > 0
       ? `<b>Previously Selected Categories: </b>${previousCategories.join(
@@ -85,14 +89,17 @@ Ready_Button.addEventListener("click", Generate_Quiz);
 function shuffleOptions(options) {
   for (let i = options.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [options[i], options[j]] = [options[j], options[i]];
+    let temp = options[i];
+    options[i] = options[j];
+    options[j] = temp;
   }
+  return options;
 }
 
 // Async function to fetch questions based on difficulty
 async function fetchQuestions(difficulty) {
   const response = await fetch(
-    `https://the-trivia-api.com/v2/questions?categories=${category}&difficulty=${difficulty}`
+    `https://the-trivia-api.com/v2/questions?categories=${category}&difficulties=${difficulty}`
   );
   const data = await response.json();
   return data;
@@ -108,13 +115,12 @@ async function Generate_Quiz() {
     const mediumQuestions = await fetchQuestions("medium");
     const hardQuestions = await fetchQuestions("hard");
 
-    // Combine and shuffle questions
+    // Combine
     Questions = [
       ...easyQuestions.slice(0, 2),
       ...mediumQuestions.slice(0, 2),
       ...hardQuestions.slice(0, 2),
     ];
-    shuffleOptions(Questions);
     displayQuestion();
   } catch (error) {
     console.error("Error fetching quiz questions:", error);
@@ -126,8 +132,7 @@ function displayQuestion() {
   if (currentQuestionIndex < Questions.length) {
     let question = Questions[currentQuestionIndex];
     let options = [question.correctAnswer, ...question.incorrectAnswers];
-    shuffleOptions(options);
-    console.log(options);
+    options = shuffleOptions(options);
 
     document.getElementById("question").textContent = question.question.text;
     let optionsList = document.getElementById("options");
@@ -211,15 +216,11 @@ function restartGame() {
   document.getElementById("error-message_p1").textContent = "";
   document.getElementById("error-message_p2").textContent = "";
 
-  // Hide all blocks and show the start block
-  Player_setup_Block.classList.add("hidden");
-  Select_Category_Block.classList.add("hidden");
-  Ready_block.classList.add("hidden");
-  Quiz_Block.classList.add("hidden");
+  //show the start block
   Quiz_Result_Block.classList.add("hidden");
   Exit_Block.classList.add("hidden");
 
-  Start_Game_Block.classList.remove("hidden");
+  Player_setup_Block.classList.remove("hidden");
 
   // Reset displayed text
   document.getElementById("Category_value").innerHTML = "";
@@ -234,11 +235,6 @@ function restartGame() {
 // Function to handle exit game
 function exitGame() {
   // Hide all blocks and show the exit block
-  Start_Game_Block.classList.add("hidden");
-  Player_setup_Block.classList.add("hidden");
-  Select_Category_Block.classList.add("hidden");
-  Ready_block.classList.add("hidden");
-  Quiz_Block.classList.add("hidden");
   Quiz_Result_Block.classList.add("hidden");
 
   Exit_Block.classList.remove("hidden");
